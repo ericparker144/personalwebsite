@@ -1,4 +1,4 @@
-# personalwebsite
+# www.engineeringeric.com
 
 This repo serves as source control for my personal portfolio website.
 
