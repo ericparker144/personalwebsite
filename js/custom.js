@@ -16,7 +16,7 @@ $(function () {
     $('a.page-scroll').on('click', function (event) {
         var $anchor = $(this);
         $('html, body').stop().animate({
-            scrollTop: $($anchor.attr('href')).offset().top
+            scrollTop: $($anchor.attr('href')).offset().top - 40
         }, 1500, 'easeInOutExpo');
         event.preventDefault();
     });
@@ -63,17 +63,32 @@ function toTopButton() {
 var fixed = false;
 $(document).scroll(toTopButton);
 
- //Show/Hide Projects
-$(".project1").click({ param1: "project1content" }, showHideProj);
-$(".project2").click({ param1: "project2content" }, showHideProj);
+function scrollToProj (proj) {
+    $('#' + proj + '-scroll').click();
+}
+
+//Show/Hide Projects
+$(".project1").click({ param1: "project1" }, showHideProj);
+$(".project2").click({ param1: "project2" }, showHideProj);
 
 function showHideProj(event) {
 
-    if ($('#' + event.data.param1).is(":visible")) {
-        $('#' + event.data.param1).slideUp(1000);
+    if ($('#' + event.data.param1 + 'content').is(":visible")) {
+        $('#' + event.data.param1 + 'content').slideUp(1000);
     }
     else {
-        $('#' + event.data.param1).slideDown(1000);
+        $('#' + event.data.param1 + 'content').slideDown(1000, function () {
+            scrollToProj(event.data.param1);
+        });
+        
     }
-    
+
 }
+
+//, function () {
+
+//    $('html, body').stop().animate({
+//        scrollTop: this.offset().top
+//    }, 1500, 'easeInOutExpo');
+
+//}

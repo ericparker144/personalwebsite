@@ -95,7 +95,10 @@
                         My name is Eric Parker and I’m a third year Electrical Engineering student at the University of Windsor.
                         This website serves as my online portfolio to demonstrate some of the personal projects I’ve worked on during my time as an engineering student,
                         provide detailed explanations of both engineering and software development projects I’ve contributed to during co-op work terms,
-                        as well as share some of the issues I’ve overcome along the way.
+                        as well as share some of the issues I’ve overcome along the way. I designed and implemented this website completely by hand to demonstrate some of my HTML, JQuery, and CSS/Bootstrap skills
+                        (however I usually prefer AngularJS). Although this website is completely client-side, I have written REST APIs and middleware using a variety of server-side technologies including Node.js, PHP, and ASP.NET.
+                        I encourage you to check out my <a href="https://github.com/ericparker144" target="_blank">GitHub</a> account to see the <a href="https://github.com/ericparker144/personalwebsite" target="_blank">source code for this website</a>
+                        as well as many other projects I’ve worked on in the past or are currently working on. If you have any questions, please <a class="page-scroll" href="#contact">contact</a> me via Email, Facebook, Twitter, or phone.
                     </p>
                 </div>
             </div>
@@ -167,7 +170,7 @@
 
     <!-- Callout -->
     <aside class="callout">
-        <div class="text-vertical-center" style="background-color:rgba(0, 0, 0, 0.6);height:100%;width:100%">
+        <div class="text-vertical-center" style="background-color:rgba(0, 0, 0, 0.3);height:100%;width:100%">
             <h2>"Our virtues and our failings are inseparable, like force and matter. When they separate, man is no more."</h2>
             <h3><i>- Nikola Tesla</i></h3>
         </div>
@@ -199,43 +202,56 @@
                                 <button class="project2 btn btn-primary">Learn More</button>
                             </div>
                         </div>
-                        <div id="project1content" style="border:1px solid transparent;display:none">
-                            Test <br />
-                            Test <br />
-                            Test <br />
-                            Test <br />
-                            Test <br />
-                            Test <br />
-                        </div>
-                        <div id="project2content" style="border:1px solid transparent;display:none">
-                            Test2 <br />
-                            Test2 <br />
-                            Test2 <br />
-                            Test2 <br />
-                            Test2 <br />
-                            Test2 <br />
-                        </div>
-                        <!--<div class="col-md-6">
-                            <div class="portfolio-item">
-                                <a href="#">
-                                    <img class="img-portfolio img-responsive" src="img/portfolio-3.jpg">
-                                </a>
-                            </div>
-                        </div>
-                        <div class="col-md-6">
-                            <div class="portfolio-item">
-                                <a href="#">
-                                    <img class="img-portfolio img-responsive" src="img/portfolio-4.jpg">
-                                </a>
-                            </div>
-                        </div>-->
                     </div>
                     <!-- /.row (nested) -->
-                    <!--<a href="#" class="btn btn-dark">View More Items</a>-->
                 </div>
                 <!-- /.col-lg-10 -->
             </div>
             <!-- /.row -->
+        </div>
+        <div class="container">
+            <div class="row">
+                <div id="project1content" class="col-lg-10 col-lg-offset-1" style="border:1px solid transparent;display:none">
+                    <h2 style="text-align:center">Energy Harvesting Exercise Machine</h2>
+                    <p class="lead">
+                        The Energy Harvesting Exercise Machine is an innovative design that transforms old exercise equipment into portable renewable energy resources.
+                        It accomplishes this by equipping an old stationary bike with an alternator and battery salvaged from scrap vehicles.
+                        Combine this with a simple power inverter circuit and you have a portable renewable energy source capable of powering virtually any mid-size household electronic device, from toasters to televisions!
+                    </p>
+                    <p class="lead">
+                        To learn more about the project, take a look at the full report by clicking on the button below.
+                        The report covers everything from the design process and market competitors to design details and prototype results.
+                        This project was completed with the help of a talented colleague Sean Santarossa. He is a fellow University of Windsor Electrical Engineering student and a good friend of mine.
+                    </p>
+                    <p class="text-center"><strong><a href="pdf/EnergyHarvestingExerciseMachineReport.pdf" target="_blank" class="btn btn-success">View Full Project Report</a></strong></p>
+                    <a id="project1-scroll" class="page-scroll" href="#project1content" style="visibility:hidden">Scroll to Project 1</a>
+                </div>
+            </div>
+        </div>
+        <!-- /.container -->
+        <div class="container">
+            <div class="row">
+                <div id="project2content" class="col-lg-10 col-lg-offset-1" style="border:1px solid transparent;display:none">
+                    <h2 style="text-align:center">Pre-Shower Water Heater</h2>
+                    <p class="lead">
+                        The Pre-Shower Water Heater is an award-winning conservation system designed to drastically reduce annual freshwater consumption.
+                        The circuit’s motivation came from the fact that most people run the water in their shower for a minute or so before stepping in to the shower to allow for the water to heat up to a comfortable temperature.
+                        This practice is extremely wasteful, and amounts to approximately 1.05 trillion liters of water wasted annually in the United States and Canada alone (see report for sources).
+                        Thus, this circuit eliminates that problem by introducing a way to provide people with water at a comfortable temperature immediately out of the shower or sink tap without any delay,
+                        allowing individuals to enter the shower or wash their hands comfortably the instant they turn the water on!
+                        It accomplishes this by storing most of the cold water remaining in the pipes running between your water heater and shower head
+                        (which is the cold water that needs to be flushed out before hot water flows through the shower head) in a heated basin, and allowing the user to heat up the water to any desired temperature with the turn of a dial.
+                        The user turns a dial and waits for the user interface to indicate that the water is heated, instead of running the water and waiting for it to get hot.
+                    </p>
+                    <p class="lead">
+                        The circuit was designed using entirely analog components, and won first prize in an Institute of Electrical and Electronics Engineers (IEEE) circuit design competition out of over 50 teams.
+                        To learn more about the project, take a look at the full report by clicking on the button below. The report covers everything from the design process and market competitors to design details and prototype results.
+                        This project was completed with the help of a talented colleague Sean Santarossa. He is a fellow University of Windsor Electrical Engineering student and a good friend of mine.
+                    </p>
+                    <p class="text-center"><strong><a href="pdf/Pre-ShowerWaterHeaterReport.pdf" target="_blank" class="btn btn-success">View Full Project Report</a></strong></p>
+                    <a id="project2-scroll" class="page-scroll" href="#project2content" style="visibility:hidden">Scroll to Project 2</a>
+                </div>
+            </div>
         </div>
         <!-- /.container -->
     </section>
@@ -294,7 +310,7 @@
                         </li>
                     </ul>
                     <hr class="small">
-                    <p class="text-muted">Copyright &copy; EngineeringEric.com 2016</p>
+                    <p class="text-muted">Copyright &copy; EngineeringEric.com 2017</p>
                 </div>
             </div>
         </div>
