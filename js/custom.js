@@ -63,24 +63,31 @@ function toTopButton() {
 var fixed = false;
 $(document).scroll(toTopButton);
 
-function scrollToProj (proj) {
-    $('#' + proj + '-scroll').click();
+function scrollToProj(proj) {
+    // Uncomment to enable scrolling to each project after each has been presented
+    //$('#' + proj + '-scroll').click();
+    return;
 }
 
 //Show/Hide Projects
 $(".project1").click({ param1: "project1" }, showHideProj);
 $(".project2").click({ param1: "project2" }, showHideProj);
+$('#project1-hide').click({ param1: "project1" }, showHideProj);
+$('#project2-hide').click({ param1: "project2" }, showHideProj);
 
 function showHideProj(event) {
 
     if ($('#' + event.data.param1 + 'content').is(":visible")) {
         $('#' + event.data.param1 + 'content').slideUp(1000);
+        $('#' + event.data.param1 + '-show').text('Learn More');
     }
     else {
         $('#' + event.data.param1 + 'content').slideDown(1000, function () {
             scrollToProj(event.data.param1);
         });
-        
+        $('#' + event.data.param1 + '-show').text('Hide Project Details');
+        $('#' + event.data.param1 + '-scroll').click();
+
     }
 
 }
