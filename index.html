@@ -91,14 +91,12 @@
             <div class="row">
                 <div class="col-lg-12 text-center">
                     <h2>Welcome!</h2>
-                    <p class="lead">
-                        My name is Eric Parker and I’m a third year Electrical Engineering student at the University of Windsor.
-                        This website serves as my online portfolio to demonstrate some of the personal projects I’ve worked on during my time as an engineering student,
-                        provide detailed explanations of both engineering and software development projects I’ve contributed to during co-op work terms,
-                        as well as share some of the issues I’ve overcome along the way. I designed and implemented this website completely by hand to demonstrate some of my HTML, JQuery, and CSS/Bootstrap skills
-                        (however I usually prefer AngularJS). Although this website is completely client-side, I have written REST APIs and middleware using a variety of server-side technologies including Node.js, PHP, and ASP.NET.
-                        I encourage you to check out my <a href="https://github.com/ericparker144" target="_blank">GitHub</a> account to see the <a href="https://github.com/ericparker144/personalwebsite" target="_blank">source code for this website</a>
-                        as well as many other projects I’ve worked on in the past or are currently working on. If you have any questions, please <a class="page-scroll" href="#contact">contact</a> me via Email, Facebook, Twitter, or phone.
+                    <p class="lead" style="text-align:left">
+                        My name is Eric Parker and I’m a third-year Electrical Engineering student at the University of Windsor. This website serves as my online portfolio to demonstrate some of the projects I’ve worked on and share details about some of the issues I’ve overcome along the way.
+                        <br />
+                        <br />
+                        Through a unique combination of university-funded research projects and co-op opportunities, I have gained experience in a number of different technical fields including software engineering (web development and embedded systems), hardware design (digital and analog), and automotive, power, and consulting engineering. Please feel free to <a class="page-scroll" href="#contact">contact</a> me if you have any questions or you would like to hear more about my experience.
+
                     </p>
                 </div>
             </div>
@@ -294,7 +292,7 @@
     </aside>
 
     <!-- Map -->
-    <section id="contact" class="map" style="height:600px;width:100%">
+    <section class="map" style="height:600px;width:100%">
         <div id="map" style="height:100%;width:100%"></div>
         <!--<iframe width="100%" height="100%" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="https://maps.google.com/maps?f=q&amp;source=s_q&amp;hl=en&amp;geocode=&amp;q=Twitter,+Inc.,+Market+Street,+San+Francisco,+CA&amp;aq=0&amp;oq=twitter&amp;sll=28.659344,-81.187888&amp;sspn=0.128789,0.264187&amp;ie=UTF8&amp;hq=Twitter,+Inc.,+Market+Street,+San+Francisco,+CA&amp;t=m&amp;z=15&amp;iwloc=A&amp;output=embed"></iframe>
         <br />
@@ -305,7 +303,7 @@
     </section>
 
     <!-- Footer -->
-    <footer>
+    <footer id="contact">
         <div class="container">
             <div class="row">
                 <div class="col-lg-10 col-lg-offset-1 text-center">
@@ -318,11 +316,14 @@
                     <ul class="list-unstyled">
                         <li><i class="fa fa-phone fa-fw"></i> (226) 345-6417</li>
                         <li>
-                            <i class="fa fa-envelope-o fa-fw"></i> <a href="mailto:name@example.com">ericparker144@gmail.com</a>
+                            <i class="fa fa-envelope-o fa-fw"></i> <a href="mailto:ericparker144@gmail.com">ericparker144@gmail.com</a>
                         </li>
                     </ul>
                     <br>
                     <ul class="list-inline">
+                        <li>
+                            <a href="https://www.linkedin.com/in/eric-parker-7a6565a3/" target="_blank"><i class="fa fa-linkedin-square fa-fw fa-3x"></i></a>
+                        </li>
                         <li>
                             <a href="https://github.com/ericparker144" target="_blank"><i class="fa fa-github fa-fw fa-3x"></i></a>
                         </li>
@@ -334,7 +335,7 @@
                         </li>
                     </ul>
                     <hr class="small">
-                    <p class="text-muted">Copyright &copy; EngineeringEric.com 2017</p>
+                    <p id="copyright" class="text-muted"></p>
                 </div>
             </div>
         </div>

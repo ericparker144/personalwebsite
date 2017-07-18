@@ -16,7 +16,7 @@ $(function () {
     $('a.page-scroll').on('click', function (event) {
         var $anchor = $(this);
         $('html, body').stop().animate({
-            scrollTop: $($anchor.attr('href')).offset().top - 40
+            scrollTop: $($anchor.attr('href')).offset().top
         }, 1500, 'easeInOutExpo');
         event.preventDefault();
     });
@@ -91,6 +91,10 @@ function showHideProj(event) {
     }
 
 }
+
+// function to automatically update the year in the copyright
+var date = new Date();
+$('#copyright').append('Copyright &copy; EngineeringEric.com ' + date.getFullYear());
 
 //, function () {
 

@@ -58,7 +58,7 @@
             '</div>' +
             '<h1 id="firstHeading" class="firstHeading">BlackBerry Headquarters</h1>' +
             '<div id="bodyContent">' +
-            '<p>This is Building B located at the BlackBerry world headquarters in Waterloo, ON. This is where I currently work as a co-op student contributing as a web software developer.</p>' +
+            '<p>This is the location of my third co-op job, Building B located at the BlackBerry world headquarters in Waterloo, ON. I worked as a full-stack developer designing and implementing REST APIs and web applications as components of large enterprise software suites, and led data integration and customer relationship management (CRM) projects resulting in over $4M in annual savings for the company.</p>' +
             '</div>' +
             '</div>';
 
