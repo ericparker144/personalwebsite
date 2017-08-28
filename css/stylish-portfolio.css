@@ -103,6 +103,16 @@ div.circle:hover {
             background-color: transparent;
         }
 
+        .navbar-custom .nav .dropdown .active a:hover {
+            color: rgba(255, 255, 255, 0.8);
+            outline: none;
+            background-color: rgba(255, 255, 255, 0.3);
+        }
+
+        #home.active a.dropdown-toggle {
+            background-color: rgba(255, 255, 255, 0.3);
+        }
+
         .navbar-custom .nav li a:focus,
         .navbar-custom .nav li a:active {
             outline: none;
@@ -113,13 +123,13 @@ div.circle:hover {
         outline: none;
     }
 
-        .navbar-custom .nav li.active a {
+        /*.navbar-custom .nav li.active a {
             background-color: rgba(255, 255, 255, 0.3);
         }
 
             .navbar-custom .nav li.active a:hover {
                 color: white;
-            }
+            }*/
 
 @media (min-width: 768px) {
     .navbar-custom {
@@ -481,4 +491,8 @@ footer {
     position: fixed;
     bottom: 5px;
     right: 5px;
+}
+
+.dropdown-menu {
+    background-color: #000000;
 }
