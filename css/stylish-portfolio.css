@@ -100,7 +100,6 @@ div.circle:hover {
         .navbar-custom .nav li a:hover {
             color: rgba(255, 255, 255, 0.8);
             outline: none;
-            background-color: transparent;
         }
 
         .navbar-custom .nav .dropdown .active a:hover {
@@ -109,14 +108,13 @@ div.circle:hover {
             background-color: rgba(255, 255, 255, 0.3);
         }
 
-        #home.active a.dropdown-toggle {
+        .dropdown.active a.dropdown-toggle {
             background-color: rgba(255, 255, 255, 0.3);
         }
 
         .navbar-custom .nav li a:focus,
         .navbar-custom .nav li a:active {
             outline: none;
-            background-color: transparent;
         }
 
     .navbar-custom .nav li.active {

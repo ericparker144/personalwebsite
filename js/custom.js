@@ -1,5 +1,5 @@
 ﻿// Close mobile navigation ("Menu" dropdown) when a link clicked
-$('.nav a').click(function () {
+$('.dropdown-menu li a').click(function () {
     $('.navbar-collapse').collapse('hide');
 });
 
@@ -107,8 +107,22 @@ $('#copyright').append('Copyright &copy; EngineeringEric.com ' + date.getFullYea
 
 //}
 
-$('.navbar .dropdown').hover(function () {
-    $(this).find('.dropdown-menu').first().stop(true, true).slideDown(150);
-}, function () {
-    $(this).find('.dropdown-menu').first().stop(true, true).slideUp(105)
-});
+//$('.navbar .dropdown').hover(function () {
+//    $(this).find('.dropdown-menu').first().stop(true, true).slideDown(150);
+//}, function () {
+//    $(this).find('.dropdown-menu').first().stop(true, true).slideUp(105)
+//})
+
+//$(document).ready(function () {
+//    $('.dropdown').on('mouseenter mouseleave click tap', function () {
+
+//        //if ($(this).hasClass('open')) {
+//        //    console.log('true');
+//        //    $(this).removeClass('open');
+//        //}
+//        //else {
+//        //    $(this).addClass('open');
+//        //}
+//        $(this).toggleClass("open");
+//    });
+//});
