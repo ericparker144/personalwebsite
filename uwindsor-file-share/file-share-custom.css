@@ -7,8 +7,14 @@
     background: #E6E6FA; /* Gecko Browsers */
 }
 
+html {
+  position: relative;
+  min-height: 100%;
+}
+
 body {
     margin-top: 50px;
+    margin-bottom: 80px;
     font-family: "Source Sans Pro","Helvetica Neue",Helvetica,Arial,sans-serif;
 }
 .navbar-header {
@@ -65,4 +71,21 @@ iframe {
 
 .tos {
     font-weight: 400;
+}
+
+.footer {
+    width: 100%;
+    position: absolute;
+    bottom: 0;
+    background-color: #000000;
+    height: 80px;
+    color: white;
+    font-family: Arial;
+    font-size: 12px;
+}
+
+#copyright {
+    padding-top: 10px;
+    text-align: center;
+    margin-bottom:0;
 }
