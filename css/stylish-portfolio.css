@@ -494,3 +494,12 @@ footer {
 .dropdown-menu {
     background-color: #000000;
 }
+
+/* Enable Bootstrap Hover Drop Downs */
+.dropdown-menu li:hover .sub-menu {
+    visibility: visible;
+}
+
+.dropdown:hover .dropdown-menu {
+    display: block;
+}

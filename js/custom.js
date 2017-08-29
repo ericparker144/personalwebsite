@@ -106,23 +106,3 @@ $('#copyright').append('Copyright &copy; EngineeringEric.com ' + date.getFullYea
 //    }, 1500, 'easeInOutExpo');
 
 //}
-
-//$('.navbar .dropdown').hover(function () {
-//    $(this).find('.dropdown-menu').first().stop(true, true).slideDown(150);
-//}, function () {
-//    $(this).find('.dropdown-menu').first().stop(true, true).slideUp(105)
-//})
-
-//$(document).ready(function () {
-//    $('.dropdown').on('mouseenter mouseleave click tap', function () {
-
-//        //if ($(this).hasClass('open')) {
-//        //    console.log('true');
-//        //    $(this).removeClass('open');
-//        //}
-//        //else {
-//        //    $(this).addClass('open');
-//        //}
-//        $(this).toggleClass("open");
-//    });
-//});
