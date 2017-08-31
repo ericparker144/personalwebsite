@@ -36,7 +36,7 @@
                 <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-main-collapse">
                     Menu <i class="fa fa-bars"></i>
                 </button>
-                <a class="navbar-brand page-scroll" href="#page-top">
+                <a id="navbar-brand-eric" class="navbar-brand page-scroll" href="#" onclick="return false" style="cursor:default">
                     <img src="img/favicon.ico" style="display:inline-block;height:25px;margin-bottom:3px" />
                     <span class="light" style="display:inline-block">Eric</span> Parker
                 </a>
@@ -141,7 +141,7 @@
                     <h2>Co-op Contributions</h2>
                     <hr class="small">
                     <div class="row">
-                        <div class="col-md-4 col-sm-6">
+                        <div class="col-md-offset-1 col-md-5 col-sm-6 col-lg-offset-1 col-lg-5">
                             <div class="service-item">
                                 <a href="#portfolioModal1" class="portfolio-link" data-toggle="modal">
                                     <div class="circle">
@@ -155,7 +155,7 @@
                                 <a href="#portfolioModal1" data-toggle="modal" class="btn btn-light">Learn More</a>
                             </div>
                         </div>
-                        <div class="col-md-4 col-sm-6">
+                        <div class="col-md-5 col-sm-6 col-lg-5">
                             <div class="service-item">
                                 <a href="#portfolioModal2" class="portfolio-link" data-toggle="modal">
                                     <div class="circle">
@@ -169,7 +169,7 @@
                                 <a href="#portfolioModal2" data-toggle="modal" class="btn btn-light">Learn More</a>
                             </div>
                         </div>
-                        <div class="col-md-4 col-sm-6">
+                        <div class="col-md-offset-1 col-md-5 col-sm-6 col-lg-offset-1 col-lg-5">
                             <div class="service-item">
                                 <a href="#portfolioModal3" class="portfolio-link" data-toggle="modal">
                                     <div class="circle">
@@ -181,6 +181,20 @@
                                 </h4>
                                 <p>BlackBerry</p>
                                 <a href="#portfolioModal3" data-toggle="modal" class="btn btn-light">Learn More</a>
+                            </div>
+                        </div>
+                        <div class="col-md-5 col-sm-6 col-lg-5">
+                            <div class="service-item">
+                                <a href="#portfolioModal4" class="portfolio-link" data-toggle="modal">
+                                    <div class="circle">
+                                        <span class="alignment-helper"></span><img src="img/centerlinelogo.png" class="img-overlay" />
+                                    </div>
+                                </a>
+                                <h4>
+                                    <strong>Product Development Co-op</strong>
+                                </h4>
+                                <p>CenterLine</p>
+                                <a href="#portfolioModal4" data-toggle="modal" class="btn btn-light">Learn More</a>
                             </div>
                         </div>
                     </div>
@@ -456,7 +470,7 @@
                                 <img class="img-responsive img-centered" src="img/solarfarm.jpg" alt="" style="width:720px">
                                 <p class="item-intro text-muted">May 2016 - August 2016</p>
                                 <p style="text-align:left">
-                                    My second co-op job was with Essex Energy Corporation. This company is an engineering consulting firm providing expertise in the areas of energy management and conservation as well as distributed generation.
+                                    My second co-op job was with Essex Energy Corporation. They are an engineering consulting firm providing expertise in the areas of energy management and conservation as well as distributed generation.
                                     I worked for the software development division responsible for producing engineering analysis software for use by power engineers to track asset information and perform engineering analysis based on real-time data.
                                     This job provided me with the opportunity to utilize both my software development skills and electrical engineering background, as I contributed to the development of software applications in addition to engineering consulting projects.
                                 </p>
@@ -513,14 +527,75 @@
                                 <!-- Project Details Go Here -->
                                 <h2>Web Software Developer</h2>
                                 <p class="item-intro text-muted">BlackBerry, Waterloo, ON</p>
-                                <img class="img-responsive img-centered" src="img/bberry.jpg" alt="" style="width:720px">
+                                <img class="img-responsive img-centered" src="img/bberry.jpg" alt="" style="width:360px;margin:auto">
                                 <p class="item-intro text-muted">January 2017 - April 2017</p>
                                 <p style="text-align:left">
-                                    My third (and current) co-op position is with BlackBerry at the world headquarters located in Waterloo.
-                                    I work as a web software developer contributing to both server-side and client-side projects. Currently, I don’t have much to say about my work here since it is ongoing.
+                                    My third co-op was with BlackBerry at the world headquarters in Waterloo, Ontario. The experience was particularly enlightening because the company was nearing the competition of a corporate pivot from handheld mobile devices to software security.
+                                    I worked for the Portals and HR team who is responsible for managing and delivering a number of web-based customer relationship management (CRM) applications that handle everything from sales transactions to online customer service.
+                                    The team’s diverse role provided me with the opportunity to get involved in a broad range of projects requiring me to leverage both my technical knowledge and strong leadership abilities.
+                                </p>
+                                <p style="text-align:left">
+                                    Most of the software development projects I contributed to were part of “Project Unite”, a company initiative to merge all BlackBerry CRM applications with its subsidiaries into a single system.
+                                    Through BlackBerry’s transition toward establishing itself as an industry leader in cyber security, they have acquired a number of companies with similar ambitions including <a target="_blank" href="https://www.athoc.com/">AtHoc</a>, Good Technology, and <a target="_blank" href="http://www.encription.co.uk/">Encription</a>
+                                    Prior to the acquisitions, each company had their own CRM applications and backend systems, and it was the goal of Project Unite to merge all customer and sales related software into a single instance.
+                                    I contributed to the project by implementing web applications and backend API methods primarily related to customer cases and sales transactions. Such projects required sophisticated knowledge of the <a target="_blank" href="https://www.salesforce.com/">Salesforce</a> platform and associated APIs in addition to single sign-on (SSO)/security assertion markup language (SAML) understanding in order to integrate the applications with existing large enterprise software suites.
+                                </p>
+                                <p style="text-align:left">
+                                    Perhaps my most impactful work at BlackBerry came through the opportunity to lead project “DNC” (Do Not Contact), which was an initiative with the goals of decommissioning an Oracle database cluster housing the contact information for people who had unsubscribed from BlackBerry marketing emails and revitalize the unsubscribe experience for customers.
+                                    The project was driven by two major benefits: the database contracts with Oracle (worth upwards of $4,000,000 annually) were concluding during my co-op term and new Canada Anti-Spam Legislation (CASL) was set to come into force on July 1, 2017.
+                                    Leading this project required well-orchestrated contributions from many different divisions of the company including migration of existing data to the new target database cluster, development of new web services that access and update the new database, deactivation of old APIs and web applications associated with the old database, and knowledge transfer/compliance within BlackBerry’s marketing team.
+                                    With such significant potential legal repercussions if the project was unsuccessful, it was vital that all involved organizations performed their duties with excellent execution.
+                                    In addition to managing the project and coordinating the actions of those involved, I contributed technically via the creation of a new DNC API which served as the primary interface between the new database cluster and all associated web applications, and implemented BlackBerry’s new <a target="_blank" href="http://www.blackberry.com/unsubscribe/">unsubscribe form</a>.
+                                    The project was very successful as all necessary objectives were delivered prior to the termination date of BlackBerry’s contract with Oracle thus allowing the company transition to the new platform without having to renew the contract, resulting in over $4,000,000 in annual savings for the company.
+                                </p>
+                                <p style="text-align:left">
+                                    As BlackBerry continues to establish itself as an industry leader in cyber security, it is necessary that all technical personnel are aware of current hacking techniques and how to combat them.
+                                    Naturally, this was the topic I chose to write about in my work term report. Click on the button below to read the full work term report entitled “Web Security Best Practices”.
+                                </p>
+                                <p><strong><a href="pdf/BlackBerryWorkTermReport.pdf" target="_blank" class="btn btn-dark">View Work Term Report</a></strong></p>
+                                <p style="text-align:left;margin-bottom:10px">Here's a summary of the things I did while working for BlackBerry:</p>
+                                <ul>
+                                    <li>Worked as a full-stack developer designing and implementing REST APIs and web applications as components of large enterprise software suites</li>
+                                    <li>Led data integration and customer relationship management (CRM) projects resulting in over $4M in annual savings for the company</li>
+                                    <li>Designed and implemented backend scripts to automate enterprise data integration operations</li>
+                                    <li>Performed LAMP stack server configuration modifications as required</li>
+                                    <li>Worked with project managers and IT operations to schedule and ensure successful software deployments</li>
+                                </ul>
+                                <p></p>
+                                <button type="button" class="btn btn-primary" data-dismiss="modal"><i class="fa fa-times"></i> Close</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Portfolio Modal 4 -->
+    <div class="portfolio-modal modal fade" id="portfolioModal4" tabindex="-1" role="dialog" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="close-modal" data-dismiss="modal">
+                    <div class="lr">
+                        <div class="rl">
+                        </div>
+                    </div>
+                </div>
+                <div class="container">
+                    <div class="row">
+                        <div class="col-lg-8 col-lg-offset-2">
+                            <div class="modal-body">
+                                <!-- Project Details Go Here -->
+                                <h2>Product Development Co-op</h2>
+                                <p class="item-intro text-muted">CenterLine, Windsor, ON</p>
+                                <img class="img-responsive img-centered" src="img/centerline.jpg" alt="" style="width:720px;margin:auto">
+                                <p class="item-intro text-muted">September 2017 - December 2017</p>
+                                <p style="text-align:left">
+                                    My final co-op position is with CenterLine at the world headquarters located in Windsor, Ontario.
+                                    I work as a Product Development Electrical Engineering Co-op Student leveraging my skills in embedded programming, microcontroller design, and controls engineering to assist the product development team with various aspects of the product development lifecycle.
+                                    Currently, I don’t have much to say about my work here since it is ongoing.
                                     Check back with this website sometime after I have completed this co-op term to find out more about the projects I contributed to while working here!
                                 </p>
-                                <p></p>
                                 <button type="button" class="btn btn-primary" data-dismiss="modal"><i class="fa fa-times"></i> Close</button>
                             </div>
                         </div>
