@@ -1,0 +1,51 @@
+.custom-table {
+    width: 100%;
+    border: 1px solid #EEEEEE;
+}
+
+.custom-table tbody td:nth-child(1) {
+    padding: 10px;
+    width: 20%;
+    text-align: center;
+    font-weight: bold;
+}
+
+.custom-table tbody td:nth-child(2) {
+    padding: 10px;
+    width: 80%;
+}
+
+.custom-table tbody tr:nth-child(1) {
+    color: #FFFFFF;
+    background-color: #252525;
+    text-align: center;
+    font-weight: bold;
+}
+
+.custom-table tbody tr:nth-child(even) {
+    background-color: #EEEEEE;
+}
+
+#form-mapping {
+    width: 100%;
+    max-width: 600px;
+    margin:0 auto;
+}
+
+#form-mapping tbody td:nth-child(1) {
+    font-weight: normal;
+    text-align: left;
+}
+
+#form-mapping tbody tr:nth-child(1) td:nth-child(1) {
+    font-weight: bold;
+    text-align: center;
+}
+
+#form-mapping tbody td:nth-child(1) {
+    width: 50%;
+}
+
+#form-mapping tbody td:nth-child(2) {
+    width: 50%;
+}
