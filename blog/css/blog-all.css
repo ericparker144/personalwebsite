@@ -323,3 +323,7 @@ body {
 	margin-top: 40px;
 	font-size: 15px;
 }
+
+.hr-heading {
+    margin-top: 0;
+}
