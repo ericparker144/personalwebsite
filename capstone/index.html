@@ -11,6 +11,7 @@
 
     <!-- Custom CSS -->
     <link rel="stylesheet" href="capstone-custom.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.css">
 
     <script src="/js/google-analytics.js"></script>
 
@@ -45,8 +46,8 @@
                 <h2 id="page-header" style="text-align:center;margin-bottom:20px">
                     Login
                 </h2>
-                
-                <form id="login-form">
+                <div id="page-body">
+                    <form id="login-form">
                         <div class="form-group">
                             <label for="email-address">Email Address</label>
                             <input type="email" class="form-control" id="email-address">
@@ -56,7 +57,8 @@
                             <input type="password" class="form-control" id="password">
                         </div>
                         <button type="submit" class="btn btn-primary center-block">Submit</button>
-                </form>
+                    </form>
+                </div>
             </div>
         </div>
     </div>
@@ -77,6 +79,7 @@
 
     <!-- Plugin JavaScript -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.3/jquery.easing.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
 
     <script type="text/javascript" src="//cdn.jsdelivr.net/particle-api-js/5/particle.min.js"></script>
 
@@ -86,11 +89,45 @@
 
 
     <script type="text/javascript">
+
+
+        // $(function() {
+            // $( "#slider-range" ).slider({
+            //     range: true,
+            //     min: 60,
+            //     max: 80,
+            //     values: [60, 80],
+            //     slide: function(event, ui) {
+            //         $( "#amount" ).val( "$" + ui.values[ 0 ] + " - $" + ui.values[ 1 ] );
+            //     }
+            // });
+            // $( "#amount" ).val( "$" + $( "#slider-range" ).slider( "values", 0 ) +
+            //   " - $" + $( "#slider-range" ).slider( "values", 1 ) );
+        // });
+
+
+
+        $(document).on("click", "button.update-temp" , function() {
+
+
+            if (!$(this).hasClass('disabled')) {
+                // Only attempt update if the device is online
+                let deviceNumber = parseInt($(this).attr('id').slice(-1));
+
+                particle.callFunction({ deviceId: globals.devices[deviceNumber].id, name: 'updateTemp', argument: 'temp_min:' + $('#min-temp-' + deviceNumber).val() + ',temp_max:' + $('#max-temp-' + deviceNumber).val(), auth: globals.access_token }).then(
+                    function(data) {
+                        console.log('Function called succesfully:', data);
+                    }, function(err) {
+                        console.log('An error occurred:', err);
+                });
+            }
+
+        });
+
         
 
         var particle = new Particle();
-
-        console.log(particle);
+        var globals = {};
 
 
         // particle.login({username: 'ericparker144@gmail.com', password: 'Haidid80'}).then(
@@ -120,10 +157,20 @@
 
 
             particle.login({username: $('#email-address').val(), password: $('#password').val()}).then(
-                function(data){
+                function (data) {
                     console.log('API call completed on promise resolve: ', data.body);
+
+
+                    globals.access_token = data.body.access_token;
+
+                    $('#login-form').hide();
+                    $('#page-header').text('Manage Devices');
+
+                    getDevices(globals.access_token, listDevices);
+
+
                 },
-                function(err) {
+                function (err) {
                     $('#login-form').after('<div id="login-error" class="alert alert-danger" style="margin-top:30px;"><strong>Error:</strong> ' + err.errorDescription + '</div>');
                 }
             );
@@ -135,6 +182,42 @@
 
             return false;
         });
+
+
+
+
+
+
+        function getDevices (accessToken, callback) {
+
+            particle.listDevices({ auth: accessToken }).then(
+                function (devices) {
+                    console.log('Devices: ', devices);
+
+                    globals.devices = devices.body;
+
+                    callback();
+
+
+                },
+                function (err) {
+                    console.log('List devices call failed: ', err);
+                }
+            );
+        }
+
+
+        function listDevices () {
+            let deviceString = '<div class="list-group">';
+
+            for (let i = 0; i < globals.devices.length; i++) {
+                deviceString += '<div class="row list-group-item' + ((globals.devices[i].connected) ? '' : ' disabled') + '"><div class="col-xs-4">' + globals.devices[i].name + '</div><div class="col-xs-4 text-center"><div class="form-row"><div class="form-group col-xs-6"><label>Minimum Temp:</label><input id="min-temp-' + i + '" type="number" value="60" class="form-control' + ((globals.devices[i].connected) ? '' : ' disabled') + '"></div><div class="form-group col-xs-6"><label>Maximum Temp:</label><input id="max-temp-' + i + '" type="number" value="80" class="form-control' + ((globals.devices[i].connected) ? '' : ' disabled') + '"></div></div>' + '</div><div class="col-xs-4 text-right" class="pull-right">' + '<button id="update-temp-' + i + '" class="update-temp btn btn-success btn-lg' + ((globals.devices[i].connected) ? '' : ' disabled') + '">Update</button>' + '</div></div>';
+            }
+
+            deviceString += '</div>';
+
+            $('#page-body').append(deviceString);
+        }
 
 
 
