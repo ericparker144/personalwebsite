@@ -91,62 +91,63 @@
     <script type="text/javascript">
 
 
-        // $(function() {
-            // $( "#slider-range" ).slider({
-            //     range: true,
-            //     min: 60,
-            //     max: 80,
-            //     values: [60, 80],
-            //     slide: function(event, ui) {
-            //         $( "#amount" ).val( "$" + ui.values[ 0 ] + " - $" + ui.values[ 1 ] );
-            //     }
-            // });
-            // $( "#amount" ).val( "$" + $( "#slider-range" ).slider( "values", 0 ) +
-            //   " - $" + $( "#slider-range" ).slider( "values", 1 ) );
-        // });
-
 
 
         $(document).on("click", "button.update-temp" , function() {
 
 
-            if (!$(this).hasClass('disabled')) {
+            // if (!$(this).hasClass('disabled')) {
                 // Only attempt update if the device is online
                 let deviceNumber = parseInt($(this).attr('id').slice(-1));
+                let devNum = parseInt(deviceNumber,10) + 1;
 
-                particle.callFunction({ deviceId: globals.devices[deviceNumber].id, name: 'updateTemp', argument: 'temp_min:' + $('#min-temp-' + deviceNumber).val() + ',temp_max:' + $('#max-temp-' + deviceNumber).val(), auth: globals.access_token }).then(
+
+                console.log({ deviceId: globals.deviceNumber, name: 'updateTemp', argument: 'temp_min:' + $('#min-temp-' + deviceNumber).val() + ',temp_max:' + $('#max-temp-' + deviceNumber).val() + "zone:" + deviceNumber+1, auth: globals.access_token });
+
+                particle.callFunction({ deviceId: globals.deviceNumber, name: 'updateTemp', argument: 'temp_min:' + $('#min-temp-' + deviceNumber).val() + ',temp_max:' + $('#max-temp-' + deviceNumber).val() + "zone:" + devNum, auth: globals.access_token }).then(
                     function(data) {
                         console.log('Function called succesfully:', data);
                     }, function(err) {
                         console.log('An error occurred:', err);
                 });
-            }
+            // }
 
         });
+
+
+        $(document).on("click", "button.refresh-temp" , function() {
+
+
+                $('#page-body').empty();
+
+
+
+            particle.getVariable({ deviceId: globals.deviceName, name: 'cloud_data', auth: globals.access_token }).then(function(data) {
+                
+              console.log('Device variable retrieved successfully:', data);
+              let zones_data = JSON.parse(data.body.result);
+
+
+                let deviceString = '<div class="list-group">';
+                
+                for (let i = 0; i < zones_data.length; i++) {
+                    deviceString += '<div class="row list-group-item"><div class="col-xs-2">' + zones_data[i].name + '</div><div class="col-xs-6 text-center"><div class="form-row"><div class="form-group col-xs-4"><label>Temp:</label><br>' + zones_data[i].tmp + '</div><div class="form-group col-xs-4"><label>Minimum Temp:</label><input id="min-temp-' + i + '" style="width:60px;" type="number" value="' + zones_data[i].mintmp + '" class="form-control"></div><div class="form-group col-xs-4"><label>Maximum Temp:</label><input id="max-temp-' + i + '" style="width:60px;" type="number" value="' + zones_data[i].maxtmp + '" class="form-control"></div></div>' + '</div><div class="col-xs-2 text-right" class="pull-right">' + '<button class="refresh-temp btn btn-success btn-lg">Refresh</button></div><div class="col-xs-2 text-right" class="pull-right"><button id="update-temp-' + i + '" class="update-temp btn btn-success btn-lg">Update</button>' + '</div></div>';
+                }
+
+                deviceString += '</div>';
+
+
+
+                $('#page-body').append(deviceString);
+
+            });
+        });
+
 
         
 
         var particle = new Particle();
         var globals = {};
-
-
-        // particle.login({username: 'ericparker144@gmail.com', password: 'Haidid80'}).then(
-        //     function(data){
-        //         console.log('API call completed on promise resolve: ', data.body);
-        //     },
-        //     function(err) {
-        //         console.log('API call completed on promise fail: ', err);
-        //     }
-        // );
-
-
-
-        // particle.listAccessTokens({ username: 'ericparker144@gmail.com', password: 'Haidid80' }).then(function(data) {
-        //     console.log('data on listing access tokens: ', data);
-        // }, function(err) {
-        //     console.log('error on listing access tokens: ', err);
-        // });
-
 
 
         $( "#login-form" ).submit(function(event) {
@@ -175,13 +176,10 @@
                 }
             );
 
-
-
-
-
-
             return false;
         });
+
+
 
 
 
@@ -208,15 +206,29 @@
 
 
         function listDevices () {
-            let deviceString = '<div class="list-group">';
 
-            for (let i = 0; i < globals.devices.length; i++) {
-                deviceString += '<div class="row list-group-item' + ((globals.devices[i].connected) ? '' : ' disabled') + '"><div class="col-xs-4">' + globals.devices[i].name + '</div><div class="col-xs-4 text-center"><div class="form-row"><div class="form-group col-xs-6"><label>Minimum Temp:</label><input id="min-temp-' + i + '" type="number" value="60" class="form-control' + ((globals.devices[i].connected) ? '' : ' disabled') + '"></div><div class="form-group col-xs-6"><label>Maximum Temp:</label><input id="max-temp-' + i + '" type="number" value="80" class="form-control' + ((globals.devices[i].connected) ? '' : ' disabled') + '"></div></div>' + '</div><div class="col-xs-4 text-right" class="pull-right">' + '<button id="update-temp-' + i + '" class="update-temp btn btn-success btn-lg' + ((globals.devices[i].connected) ? '' : ' disabled') + '">Update</button>' + '</div></div>';
-            }
+                // console.log('Device variable retrieved successfully:', data);
+                particle.getVariable({ deviceId: globals.deviceName, name: 'cloud_data', auth: globals.access_token }).then(function(data) {
+                
+                    console.log('Device variable retrieved successfully:', data);
+                    let zones_data = JSON.parse(data.body.result);
 
-            deviceString += '</div>';
 
-            $('#page-body').append(deviceString);
+                    let deviceString = '<div class="list-group">';
+                    
+                    for (let i = 0; i < zones_data.length; i++) {
+                        deviceString += '<div class="row list-group-item"><div class="col-xs-2">' + zones_data[i].name + '</div><div class="col-xs-6 text-center"><div class="form-row"><div class="form-group col-xs-4"><label>Temp:</label><br>' + zones_data[i].tmp + '</div><div class="form-group col-xs-4"><label>Minimum Temp:</label><input id="min-temp-' + i + '" style="width:60px;" type="number" value="' + zones_data[i].mintmp + '" class="form-control"></div><div class="form-group col-xs-4"><label>Maximum Temp:</label><input id="max-temp-' + i + '" style="width:60px;" type="number" value="' + zones_data[i].maxtmp + '" class="form-control"></div></div>' + '</div><div class="col-xs-2 text-right" class="pull-right">' + '<button class="refresh-temp btn btn-success btn-lg">Refresh</button></div><div class="col-xs-2 text-right" class="pull-right"><button id="update-temp-' + i + '" class="update-temp btn btn-success btn-lg">Update</button>' + '</div></div>';
+                    }
+
+                    deviceString += '</div>';
+
+
+
+                    $('#page-body').append(deviceString);
+
+            });
+
+
         }
 
 
